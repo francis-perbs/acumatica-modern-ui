@@ -1,0 +1,12 @@
+<template>
+    <field after="#fsItemDefaults-General [name='ItemType']" name="UsrRepairItem"></field>
+    <field after="#fsItemDefaults-General [name='UsrRepairItem']" name="UsrRepairItemType"></field>
+
+    <field after="#fsColumnB-StockItem [name='ProductWorkgroupID']" name="UsrTextB"></field>
+
+    <field after="#fsStandardCost-PriceCost [name='PendingStdCostDate']" name="UsrTextA"></field>
+
+    <qp-tab id="tab-CompatibleDevices" after="#tab-PriceCost" caption="Compatible Devices"> 
+		<qp-include url="../../../common/CompatibleDevices/CompatibleDevicesTable.html" table-view="CompatibleDevices" ></qp-include>
+	</qp-tab>
+</template>

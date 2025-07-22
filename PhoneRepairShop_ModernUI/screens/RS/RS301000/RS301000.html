@@ -1,0 +1,51 @@
+<template>
+  <qp-template id="frm_WorkOrders" name="1-1-1" qp-collapsible>
+    <qp-fieldset id="frm_WorkOrders_ColA" slot="A" view.bind="WorkOrders" wg-container="WorkOrders_form">
+      <field name="UsrOrderType"></field>
+      <field name="OrderNbr"></field>
+      <field name="Status"></field>
+      <field name="DateCreated"></field>
+      <field name="DateCompleted"></field>
+      <field name="Priority"></field>
+    </qp-fieldset>
+    <qp-fieldset id="frm_WorkOrders_ColB" slot="B" view.bind="WorkOrders" wg-container="WorkOrders_form">
+      <field name="CustomerID"></field>
+      <field name="ServiceID"></field>
+      <field name="DeviceID"></field>
+      <field name="Assignee"></field>
+      <field name="Description"></field>
+    </qp-fieldset>
+    <qp-fieldset id="frm_WorkOrders_ColC" slot="C" view.bind="WorkOrders" wg-container="WorkOrders_form">
+      <field name="OrderTotal"></field>
+      <!-- Inline -->
+      <field name="InvoiceNbr">
+        <qp-button config.bind="btnOpenInvoice" state.bind="OpenInvoice"></qp-button>
+      </field>
+      <!-- Next Line -->
+      <field name="InvoiceNbr">
+        <qp-button config.bind="btnOpenInvoice" state.bind="OpenInvoice" class="col-12"></qp-button>
+      </field>
+      <field name="ReverseLabel" unbound replace-content>
+        <qp-button config.bind="btnOpenInvoice" state.bind="OpenInvoice" class="col-4"></qp-button>
+        <qp-field control-state.bind="WorkOrders.InvoiceNbr"  class="col-8 label-size-s control-size-m"></qp-field>
+      </field>
+    </qp-fieldset>
+    <div if.bind="showMe">
+      Welcome back, ${hellow}!
+    </div>
+    <div else>
+      Please log in to continue.
+    </div>
+  </qp-template>
+  <qp-tabbar id="tab_WorkOrder">
+    <qp-tab id="tab_WorkOrder_RepairItems" caption="Repair Items">
+      <qp-grid id="grid_WorkOrder_Repairs" view.bind="RepairItems"></qp-grid>
+    </qp-tab>
+    <qp-tab id="tab_WorkOrder_Labor" caption="Labor" visible.bind="showMe">
+      <qp-grid id="grid_WorkOrder_Labor" view.bind="Labor"></qp-grid>
+    </qp-tab>
+    <qp-tab id="tab_Compatible_Devices" caption="Devices">
+      <qp-include url="../../common/CompatibleDevices/CompatibleDevicesTable.html" table-view="CompatibleDevices" ></qp-include>
+    </qp-tab>
+  </qp-tabbar>
+</template>

@@ -1,0 +1,22 @@
+<template>
+  <qp-template id="frmDtl_ServicesAndPrices" name="1-1">
+    <qp-fieldset id="frm_ServicesAndPrices_ColA" slot="A" view.bind="RepairPrices" wg-container="RepairPrices_form">
+      <field name="ServiceID"></field>
+      <field name="DeviceID"></field>
+    </qp-fieldset>
+    <qp-fieldset id="frm_ServicesAndPrices_ColB" slot="B" view.bind="RepairPrices" class="transparent-section" wg-container="RepairPrices_form">
+      <field name="Price"></field>
+    </qp-fieldset>
+  </qp-template>
+  <qp-tabbar id="tab_ServicesAndPrices">
+    <qp-tab id="tab_ServicesAndPrices_RepairItems" caption="Repair Itemssssss" class="highlights-section">
+      <qp-grid id="RepairItems_CstPXGrid5" view.bind="RepairItems"></qp-grid>
+    </qp-tab>
+    <qp-tab id="tab_ServicesAndPrices_Labor" caption="Labor">
+      <qp-grid id="Labor_CstPXGrid7" view.bind="Labor"></qp-grid>
+    </qp-tab>
+    <qp-tab id="tab_ServicesAndPrices_Warranty" caption="Warranty" class="framed-section">
+      <qp-grid id="Warranty_CstPXGrid8" view.bind="Warranty"></qp-grid>
+    </qp-tab>
+  </qp-tabbar>
+</template>
