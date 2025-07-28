@@ -7,6 +7,58 @@ using PX.Data.WorkflowAPI;
 
 namespace PhoneRepairShop
 {
+    [PXCacheName(Messages.RSSVWorkOrderToPay)]
+    public class RSSVWorkOrderToPay : RSSVWorkOrder
+    {
+        #region OrderType
+        [PXString(IsKey = true)]
+        [PXUIField(DisplayName = "Order Type")]
+        [PXUnboundDefault(OrderTypeConstants.WorkOrder)]
+        [PXStringList(
+          new string[]
+          {
+              OrderTypeConstants.SalesOrder,
+              OrderTypeConstants.WorkOrder
+          },
+          new string[]
+          {
+              Messages.SalesOrder,
+              Messages.WorkOrder
+          })]
+        public virtual string? OrderType { get; set; }
+        public abstract class orderType :
+            PX.Data.BQL.BqlDecimal.Field<orderType>
+        { }
+        #endregion
+
+        #region ServiceID
+        public new abstract class serviceID : PX.Data.BQL.BqlInt.Field<serviceID> {}
+        #endregion
+
+        #region CustomerID
+        public new abstract class customerID : PX.Data.BQL.BqlInt.Field<customerID> {}
+        #endregion
+
+        #region InvoiceNbr
+        public new abstract class invoiceNbr : PX.Data.BQL.BqlString.Field<invoiceNbr> {}
+        #endregion
+
+        #region Status
+        public new abstract class status : PX.Data.BQL.BqlString.Field<status> {}
+        #endregion
+
+        #region OrderNbr
+        public new abstract class orderNbr : PX.Data.BQL.BqlString.Field<orderNbr> {}
+        #endregion
+
+        #region PercentPaid
+        [PXDecimal]
+        [PXUIField(DisplayName = "Percent Paid")]
+        public virtual Decimal? PercentPaid { get; set; }
+        public abstract class percentPaid : PX.Data.BQL.BqlDecimal.Field<percentPaid> {}
+        #endregion
+    }
+
     [PXCacheName(Messages.RSSVWorkOrder)]
     public class RSSVWorkOrder : PXBqlTable, IBqlTable
     {

@@ -30,8 +30,8 @@
         <qp-field control-state.bind="WorkOrders.InvoiceNbr"  class="col-8 label-size-s control-size-m"></qp-field>
       </field>
     </qp-fieldset>
-    <div if.bind="showMe">
-      Welcome back, ${hellow}!
+    <div if.bind="isLoggedIn">
+      Welcome back, ${hellow}
     </div>
     <div else>
       Please log in to continue.

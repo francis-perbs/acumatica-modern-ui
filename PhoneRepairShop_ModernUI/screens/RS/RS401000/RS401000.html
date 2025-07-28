@@ -1,0 +1,11 @@
+<template>
+  <qp-template id="frm-SummaryFilter" name="1-1" class="equal-height">
+    <qp-fieldset id="frm-SummaryFilter-ColA" slot="A" view.bind="Filter">
+      <field name="ServiceID"></field>
+      <field name="CustomerID"></field>
+    </qp-fieldset>
+  </qp-template>
+  <qp-grid id="grid-PaymentSummary" view.bind="DetailsView"></qp-grid>
+  <qp-grid id="grid-CustomerView" view.bind="CustomerView"></qp-grid>
+  <qp-grid id="grid-WorkOrderPayView" view.bind="WorkOrderPayView"></qp-grid>
+</template>

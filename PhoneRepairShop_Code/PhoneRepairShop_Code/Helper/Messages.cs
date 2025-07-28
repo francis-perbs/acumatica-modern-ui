@@ -10,7 +10,12 @@ namespace PhoneRepairShop
     [PXLocalizable()]
     public static class Messages
     {
+        // Order types
+        public const string SalesOrder = "SO";
+        public const string WorkOrder = "WO";
+
         //DAC names
+        public const string RSSVWorkOrderToPay = "Repair Work Order To Pay";
         public const string RSSVDevice = "Serviced Device";
         public const string RSSVRepairService = "Repair Service";
         public const string RSSVRepairPrice = "Repair Price";
